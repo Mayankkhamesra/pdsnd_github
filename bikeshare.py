@@ -193,7 +193,7 @@ def main():
                     break
 
 
-        restart = input('\nDo you want to run the program again?(Yes/No): ')
+        restart = input('\nDo you want to run the code again?(Yes/No): ')
         if restart.lower() != 'yes':
             break
 
