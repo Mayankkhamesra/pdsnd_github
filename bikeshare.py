@@ -28,7 +28,7 @@ def get_filters():
 
     # TO DO: get user input for day of week (all, monday, tuesday, ... sunday)
     day = input("Please input day of week(Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday or All): ").lower()
-    
+
     print('-'*40)
     return city, month, day
 
@@ -50,7 +50,7 @@ def load_data(city, month, day):
     df['End Time'] = pd.to_datetime(df['End Time'])
     df['month'] = df['Start Time'].apply(lambda x: x.month)
     df['day_of_week'] = df['Start Time'].apply(lambda x: x.strftime('%A').lower())
-    
+
     # Processing DataFrame for the selected month
     if month != 'all':
         months = ['january', 'february', 'march', 'april', 'may', 'june']
@@ -60,7 +60,7 @@ def load_data(city, month, day):
     # Processing DataFrame for selected day
     if day != 'all':
         df = df.loc[df['day_of_week'] == day,:]
-        
+
     return df
 
 
@@ -123,7 +123,7 @@ def trip_duration_stats(df):
     start_time = time.time()
 
     # TO DO: display total travel time
-    print("Total travel time: {}".format(
+    print("Total travel time: {} seconds".format(
         str(df['Trip Duration'].sum()))
     )
 
@@ -176,13 +176,13 @@ def main():
         station_stats(df)
         trip_duration_stats(df)
         user_stats(df,city)
-        
+
         # Displaying raw data
         start_loc = 0
         end_loc = 5
 
         display_active = input("Would you like to see 5 rows of raw data?(Yes/No): ").lower()
-    
+
         if display_active == 'yes':
             while end_loc <= df.shape[0] - 1:
                 print(df[start_loc:end_loc])
@@ -192,7 +192,7 @@ def main():
                 if end_display == 'no':
                     break
 
-        
+
         restart = input('\nDo you want to run the program again?(Yes/No): ')
         if restart.lower() != 'yes':
             break
