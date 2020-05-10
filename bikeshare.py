@@ -128,7 +128,7 @@ def trip_duration_stats(df):
     )
 
     # TO DO: display mean travel time
-    print("Average travel time: {}".format(
+    print("Average travel time: {} seconds".format(
         str(df['Trip Duration'].mean()))
     )
 
